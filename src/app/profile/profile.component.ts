@@ -1,21 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card'
 import { environment } from 'src/environments/environment';
-
-type ProfileType = {
-  givenName?: string,
-  surname?: string,
-  userPrincipalName?: string,
-  id?: string
-}
+import { Profile } from '../interfaces/profile';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  standalone: true,
+  imports: [MatButtonModule, MatCardModule]
 })
 export class ProfileComponent implements OnInit {
-  profile!: any;
+  profile!: Profile;
 
   constructor(
     private http: HttpClient

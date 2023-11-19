@@ -19,8 +19,7 @@ const isIE =
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProfileComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +28,7 @@ const isIE =
     MatButtonModule,
     MatToolbarModule,
     MatListModule,
+    ProfileComponent,
     HttpClientModule,
     MsalModule.forRoot(
       new PublicClientApplication({
