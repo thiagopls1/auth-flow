@@ -11,7 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MsalModule, MsalRedirectComponent, MsalGuard, MsalInterceptor } from '@azure/msal-angular';
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../src/environments/environment';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -33,8 +33,8 @@ const isIE =
     MsalModule.forRoot(
       new PublicClientApplication({
         auth: {
-          clientId: '',
-          authority: `${environment.authorityEndpoint}/${environment.clientId}`,
+          clientId: environment.clientId,
+          authority: `${environment.authorityEndpoint}/${environment.tenantId}`,
           redirectUri: environment.redirectUri
         },
         cache: {
